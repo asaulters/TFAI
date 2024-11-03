@@ -1,0 +1,22 @@
+.category-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.category-dropdown {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: 2px solid var(--primary-accent);
+  border-radius: 5px;
+  background-color: white;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-dropdown:hover,
+.category-dropdown:focus {
+  border-color: var(--secondary-accent);
+  outline: none;
+}

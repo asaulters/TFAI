@@ -1,0 +1,113 @@
+/* frontend/src/components/tools/ToolModal.css */
+
+.tool-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.tool-modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 2rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.tool-modal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.tool-modal-icon {
+  width: 80px;
+  height: 80px;
+  margin-right: 1.5rem;
+}
+
+.tool-modal-title h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.tool-modal-category {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.tool-modal-body section {
+  margin-bottom: 2rem;
+}
+
+.tool-modal-body h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.pricing-item {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.pros-cons-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.pros ul, .cons ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pros li::before {
+  content: "✓";
+  color: #28a745;
+  margin-right: 0.5rem;
+}
+
+.cons li::before {
+  content: "×";
+  color: #dc3545;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .pros-cons-section {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
