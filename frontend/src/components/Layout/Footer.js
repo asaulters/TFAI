@@ -1,26 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
-        <div className="footer-logo">
-          <img src="/logo-white.png" alt="TaskFlowAI Logo" />
+      <div className="footer-content">
+        <div className="footer-text">
+          © 2024 TaskFlowAI. All rights reserved.
         </div>
         <div className="footer-links">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/#business-selection">Businesses</a></li>
-            <li><a href="/#coming-soon">Coming Soon</a></li>
-            <li><a href="/#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div className="footer-social">
-          {/* Add social media icons here */}
-        </div>
-        <div className="footer-copyright">
-          &copy; {new Date().getFullYear()} TaskFlowAI. All rights reserved.
+          <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+          <Link to="/terms" className="footer-link">Terms of Service</Link>
+          <Link to="/contact" className="footer-link">Contact Us</Link>
         </div>
       </div>
     </footer>

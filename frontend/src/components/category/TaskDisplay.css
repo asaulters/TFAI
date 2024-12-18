@@ -2,69 +2,62 @@
   margin-top: 2rem;
 }
 
-.task-category {
-  margin-bottom: 2rem;
-}
-
-.task-category h3 {
-  color: var(--primary);
-  border-bottom: 2px solid var(--primary);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.task-list {
-  list-style-type: none;
-  padding: 0;
+.tasks-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
-.task-item {
-  display: flex;
-  align-items: flex-start;
-  padding: 1rem;
-  background-color: var(--accent);
-  border-radius: 5px;
+.task-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
   cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.task-item:hover {
-  transform: translateY(-3px);
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.task-icon {
-  margin-right: 0.5rem;
-  flex-shrink: 0;
+.task-card h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
 }
 
-.icon-placeholder {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  background-color: var(--primary);
-  color: var(--accent);
-  border-radius: 50%;
-  font-size: 0.8rem;
-}
-
-.task-content {
-  flex-grow: 1;
-}
-
-.task-content h4 {
-  margin: 0 0 0.5rem 0;
-  color: var(--primary);
-  font-size: 1rem;
-}
-
-.task-content p {
-  margin: 0;
-  color: var(--text-color);
+.task-card p {
+  margin: 0.5rem 0;
   font-size: 0.9rem;
+  line-height: 1.4;
+  color: #666;
+  /* Ensure description doesn't overflow card */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.task-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.difficulty, .setup-time {
+  padding: 0.25rem 0.5rem;
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.category-title {
+  text-align: center;
+  color: #1a237e; /* Your header/footer color - adjust as needed */
+  font-size: 2rem;
+  margin: 2rem 0;
+  font-weight: 600;
 }

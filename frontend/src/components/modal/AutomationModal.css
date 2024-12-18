@@ -221,3 +221,53 @@
     color: #666;
     margin-bottom: 0.75rem;
   }
+  
+  /* Steps section alignment */
+  .steps-section {
+    text-align: left;
+    padding: 0 20px;
+  }
+  
+  .steps-section h3 {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+  
+  .step-item {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+  
+  .step-category,
+  .step-name,
+  .step-description {
+    text-align: left;
+    margin-left: 0;
+  }
+  
+  /* Benefits section alignment */
+  .benefits-section {
+    text-align: left;
+    padding: 0 20px;
+  }
+  
+  .benefits-section h3 {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+  
+  .benefits-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+  }
+  
+  .benefits-list li {
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Keep title centered if desired */
+  .modal-title {
+    text-align: center;
+  }

@@ -19,16 +19,34 @@
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
+  text-align: left;  /* Ensure content is left-aligned */
 }
 
 .task-modal-content h2 {
   color: var(--primary);
   margin-top: 0;
+  text-align: left;  /* Ensure headings are left-aligned */
 }
 
 .task-modal-content p {
   color: var(--text-color);
   line-height: 1.6;
+  text-align: left;  /* Ensure paragraphs are left-aligned */
+}
+
+/* Specific styles for steps and benefits */
+.task-modal-content ul,
+.task-modal-content ol {
+  text-align: left;
+  padding-left: 1.5rem;  /* Add proper indentation for lists */
+  margin: 1rem 0;
+}
+
+.task-modal-content li {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .task-modal-content button {

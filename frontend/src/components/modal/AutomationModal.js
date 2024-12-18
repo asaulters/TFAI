@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import VideoPlayer from '../video/VideoPlayer';
 import './AutomationModal.css';
 
 const AutomationModal = ({ automation, onClose }) => {
@@ -24,7 +25,27 @@ const AutomationModal = ({ automation, onClose }) => {
       'Buffer': 'buffer',
       'Calendly': 'calendly',
       'Trello': 'trello',
-      'MidJourney': 'midjourney'
+      'MidJourney': 'midjourney',
+      'HubSpot': 'hubspot',
+      'Google Drive': 'google-drive',
+      'Dropbox': 'dropbox',
+      'Google Analytics': 'google-analytics',
+      'Git': 'git',
+      'ApproveMe': 'approveme',
+      'Monday': 'monday',
+      'ClickUp': 'clickup',
+      'Microsoft Teams': 'microsoft-teams',
+      'Notion': 'notion',
+      'Zoom': 'zoom',
+      'DocuSign': 'docusign',
+      'QuickBooks': 'quickbooks',
+      'Xero': 'xero',
+      'Stripe': 'stripe',
+      'PayPal': 'paypal',
+      'Square': 'square',
+      'WordPress': 'wordpress',
+      'Shopify': 'shopify',
+      'WooCommerce': 'woocommerce'
     };
     
     const normalizedToolName = Object.keys(toolsMap).find(
@@ -91,6 +112,11 @@ const AutomationModal = ({ automation, onClose }) => {
                 <strong>Cost Estimate:</strong> {automation.costEstimate}
               </div>
             )}
+          </div>
+
+          <div className="video-section">
+            <h3>Video Walkthrough</h3>
+            <VideoPlayer videoUrl={automation.video_walkthrough} />
           </div>
 
           {automation.tools && automation.tools.length > 0 && (

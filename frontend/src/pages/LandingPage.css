@@ -1,95 +1,131 @@
-.landing-page section {
-  padding: 4rem 0;
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero {
-  background-color: var(--primary);
-  color: var(--accent);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--text-light);
+  padding: 4rem 2rem;
   text-align: center;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.cta-button {
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.hero p {
   font-size: 1.2rem;
-  padding: 12px 24px;
-  background-color: var(--accent);
-  color: var(--primary);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.2s ease;
+  background: #D4A373;
+  color: var(--text-light);
+  width: 250px;
 }
 
 .cta-button:hover {
-  background-color: var(--secondary);
+  transform: translateY(-2px);
+  background: #c29365;
 }
 
-.business-selection {
-  background-color: var(--nav-footer);
-  color: var(--accent);
-  text-align: center;
+.cta-button.industry,
+.cta-button.general {
+  background: #D4A373;
+  border: none;
+  width: 250px;
 }
 
-.task-display {
-  background-color: var(--secondary);
-}
-
-.coming-soon {
-  background-color: var(--accent);
-  color: var(--primary);
-}
-
-.contact {
-  background-color: var(--primary);
-  color: var(--accent);
+.cta-button.industry:hover,
+.cta-button.general:hover {
+  background: #c29365;
 }
 
 .automations-section {
-  margin: 2rem 0;
+  padding: 2rem;
+  text-align: center;
+  min-height: 80px;
+  transition: min-height 0.3s ease;
+  margin-bottom: 4rem;
 }
 
-.automations-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+.section-title {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
 }
 
-.automation-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+.select-prompt {
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  opacity: 0.8;
 }
 
-.automation-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+/* Reduce spacing in CategorySelector */
+.automations-section .category-selector {
+  margin: 0.5rem 0;
 }
 
-.automation-card h3 {
-  margin: 0 0 1rem 0;
-  color: #333;
+/* Reduce spacing for task display */
+.automations-section .task-display {
+  margin-top: 0.5rem;
 }
 
-.automation-card p {
-  color: #666;
-  margin-bottom: 1rem;
+/* Add spacing between main sections */
+.coming-soon-section {
+  margin: 4rem 0;
+  padding: 2rem;
 }
 
-.tools-section {
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
-  font-size: 0.9rem;
+.contact-section {
+  margin-top: 8rem;
+  margin-bottom: 4rem;  /* Reverted to 4rem since we're handling spacing in App.css */
+  padding: 3rem;
+  background-color: var(--background-light);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-button {
+    width: 250px;
+  }
+
+  .automations-section {
+    padding: 1rem;
+    margin-bottom: 3rem;
+  }
 }

@@ -88,8 +88,24 @@ const getCategories = async (req, res) => {
   }
 };
 
+// Get general automations from general-automations.json
+const getGeneralAutomations = async (req, res) => {
+  try {
+    const dataPath = path.join(__dirname, '../seeders/general-automations.json');
+    const rawData = await fs.readFile(dataPath, 'utf8');
+    const data = JSON.parse(rawData);
+    
+    console.log('Sending general automations:', data);
+    res.json(data);
+  } catch (error) {
+    console.error('Error reading general automations:', error);
+    res.status(500).json({ error: 'Failed to get general automations' });
+  }
+};
+
 module.exports = {
   getAllCategories,
   getAutomationTasksByTaskCategory,
-  getCategories
+  getCategories,
+  getGeneralAutomations
 };

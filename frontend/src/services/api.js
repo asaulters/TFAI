@@ -33,3 +33,17 @@ export const getAutomationTasksByTaskCategory = async (taskCategoryId) => {
     return [];
   }
 };
+
+// Function to get general automations
+export const getGeneralAutomations = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/automation-tasks/general`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch general automations');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching general automations:', error);
+    return [];
+  }
+};

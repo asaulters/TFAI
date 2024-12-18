@@ -10,6 +10,7 @@ const jobCategoryRoutes = require('./routes/jobCategoryRoutes');
 const taskCategoryRoutes = require('./routes/taskCategoryRoutes');
 const automationTaskRoutes = require('./routes/automationTaskRoutes');
 const errorHandler = require('./middleware/errorHandler');
+const emailRoutes = require('./routes/emailRoutes');
 
 // Import models
 require('./models/JobCategory');
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use('/api/job-categories', jobCategoryRoutes);
 app.use('/api/task-categories', taskCategoryRoutes);
 app.use('/api/automation-tasks', automationTaskRoutes);
+app.use('/api/email', emailRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);

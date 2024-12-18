@@ -1,23 +1,50 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (section) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(section);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const element = document.querySelector(section);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="header">
       <div className="container">
         <div className="logo">
-          <Link to="/">
-            <img src="/TaskFlowAI_logo_transparent.png" alt="TaskFlowAI Logo" />
-          </Link>
+          <a href="/">BizEaseAI</a>
         </div>
         <nav>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/#business-selection">Businesses</Link></li>
-            <li><Link to="/ai-tools">AI Tools</Link></li>
-            <li><Link to="/#coming-soon">Coming Soon</Link></li>
-            <li><Link to="/#contact">Contact</Link></li>
+            <li>
+              <a href="/ai-tools">AI Tools</a>
+            </li>
+            <li>
+              <a onClick={() => handleNavClick('#automations-section')}>
+                Automations
+              </a>
+            </li>
+            <li>
+              <a onClick={() => handleNavClick('#coming-soon')}>
+                Coming Soon
+              </a>
+            </li>
+            <li>
+              <a onClick={() => handleNavClick('#contact-form')}>
+                Contact
+              </a>
+            </li>
           </ul>
         </nav>
       </div>

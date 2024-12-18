@@ -20,24 +20,12 @@ const CategorySelector = ({ onCategorySelect }) => {
     fetchCategories();
   }, []);
 
-  const handleCategoryChange = async (event) => {
-    const categoryIndex = event.target.value;
+  const handleCategoryChange = (event) => {
+    const categoryIndex = parseInt(event.target.value);
     setSelectedCategory(categoryIndex);
-
-    try {
-      const data = await getCategories();
-      const categoryData = data.categories[categoryIndex];
-      const categoryName = Object.keys(categoryData)[0];
-      const automations = categoryData[categoryName];
-
-      onCategorySelect({
-        index: categoryIndex,
-        name: categoryName,
-        automations: automations
-      });
-    } catch (error) {
-      console.error('Error processing category change:', error);
-    }
+    const selectedCategoryData = categories[categoryIndex];
+    console.log('Selected category data:', selectedCategoryData);
+    onCategorySelect(selectedCategoryData);
   };
 
   return (
