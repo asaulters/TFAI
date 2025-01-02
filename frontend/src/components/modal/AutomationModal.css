@@ -271,3 +271,104 @@
   .modal-title {
     text-align: center;
   }
+
+  .download-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .name-input,
+  .email-input {
+    width: 100%;
+    max-width: 320px;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 24px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .name-input:focus,
+  .email-input:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.1);
+  }
+
+  .name-input::placeholder,
+  .email-input::placeholder {
+    color: #888;
+  }
+
+  .download-pdf-btn {
+    background-color: #1a73e8;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .download-pdf-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .download-pdf-btn:hover {
+    background-color: #1557b0;
+  }
+
+  .download-pdf-btn:active {
+    transform: translateY(1px);
+  }
+
+  .download-pdf-btn.success {
+    background-color: #4CAF50;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .download-pdf-btn.success:hover {
+    background-color: #45a049;
+  }
+
+  .status-message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .status-message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+  }
+
+  .status-message.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+  }
+
+  .name-input:disabled,
+  .email-input:disabled,
+  .download-pdf-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }

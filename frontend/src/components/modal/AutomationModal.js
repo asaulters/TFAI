@@ -1,9 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import VideoPlayer from '../video/VideoPlayer';
 import './AutomationModal.css';
 
 const AutomationModal = ({ automation, onClose }) => {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [pdfLink, setPdfLink] = useState('');
+  
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleDownload = async () => {
+    if (!name || !email || !isValidEmail(email)) return;
+    
+    setLoading(true);
+    setStatus({ type: '', message: '' });
+    setPdfLink('');
+
+    try {
+      const response = await fetch('http://localhost:5001/api/email/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: name,
+          email: email,
+          category: automation.category
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to subscribe to mailing list');
+      }
+
+      if (data.success) {
+        setStatus({
+          type: 'success',
+          message: 'Successfully subscribed! Your PDF is ready.'
+        });
+        setPdfLink(data.pdfLink);
+      } else {
+        setStatus({
+          type: 'error',
+          message: data.error || 'Something went wrong'
+        });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setStatus({
+        type: 'error',
+        message: error.message || 'Failed to process your request'
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const navigate = useNavigate();
 
   if (!automation) return null;
@@ -189,6 +248,48 @@ const AutomationModal = ({ automation, onClose }) => {
               <p>{automation.maintenanceNeeds}</p>
             </div>
           )}
+
+          <div className="download-section">
+            <input
+              type="text"
+              className="name-input"
+              placeholder="Enter Your Name"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              disabled={loading}
+            />
+            <input
+              type="email"
+              className="email-input"
+              placeholder="Enter Email for PDF"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              disabled={loading}
+            />
+            {status.message && (
+              <div className={`status-message ${status.type}`}>
+                {status.message}
+              </div>
+            )}
+            {pdfLink ? (
+              <a 
+                href={pdfLink}
+                className="download-pdf-btn success"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download PDF
+              </a>
+            ) : (
+              <button 
+                className="download-pdf-btn"
+                onClick={handleDownload}
+                disabled={loading || !name || !email || !isValidEmail(email)}
+              >
+                {loading ? 'Processing...' : 'Download PDF Walkthrough'}
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -23,8 +23,19 @@ dotenv.config();
 const PORT = process.env.PORT || 5001;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
+
+// Debug middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
 
 // Routes
 app.use('/api/job-categories', jobCategoryRoutes);
@@ -32,8 +43,19 @@ app.use('/api/task-categories', taskCategoryRoutes);
 app.use('/api/automation-tasks', automationTaskRoutes);
 app.use('/api/email', emailRoutes);
 
+// Test route
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Backend server is running' });
+});
+
 // Error Handling Middleware
 app.use(errorHandler);
+
+// 404 handler
+app.use((req, res) => {
+  console.log('404 Not Found:', req.method, req.url);
+  res.status(404).json({ error: 'Not Found' });
+});
 
 // Sync Database and Start Server
 sequelize
