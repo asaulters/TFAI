@@ -48,7 +48,9 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="contact-form">
+    <div>
+      <h2 className="contact-title">Don't see an automation you'd like, suggest it below or leave us some feedback. We'd love to hear from you.</h2>
+      <form onSubmit={handleSubmit} className="contact-form">
       <div className="form-group">
         <label htmlFor="name">Name:</label>
         <input
@@ -95,6 +97,7 @@ const ContactForm = () => {
         <p className="error-message">Failed to send message. Please try again.</p>
       )}
     </form>
+    </div>
   );
 };
 

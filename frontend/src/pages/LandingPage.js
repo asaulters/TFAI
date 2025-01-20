@@ -1,14 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import CategorySelector from '../components/category/CategorySelector';
 import TaskDisplay from '../components/category/TaskDisplay';
 import GeneralAutomations from '../components/automations/GeneralAutomations';
 import WhyAutomation from '../components/sections/WhyAutomation';
+import FAQ from '../components/sections/FAQ';
 import ContactForm from '../components/ContactForm';
 import ComingSoon from '../components/ComingSoon';
 import './LandingPage.css';
 
 const LandingPage = () => {
-  console.log('LandingPage rendering');
+  const location = useLocation();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [viewMode, setViewMode] = useState('');
   const automationsSectionRef = useRef(null);
@@ -31,6 +33,14 @@ const LandingPage = () => {
   const scrollToContact = () => {
     contactFormRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    if (location.state?.scrollToContact) {
+      scrollToContact();
+      // Clear the state to prevent scrolling on subsequent renders
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
 
   return (
     <div className="landing-page">
@@ -77,6 +87,8 @@ const LandingPage = () => {
       <div id="coming-soon" ref={comingSoonRef}>
         <ComingSoon />
       </div>
+
+      <FAQ />
       
       <div id="contact-form" ref={contactFormRef}>
         <ContactForm />

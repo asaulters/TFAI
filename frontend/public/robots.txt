@@ -1,3 +1,9 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Allow: /ai-tools
+Allow: /components/
+Allow: /sections/
+
+# Point to sitemap
+Sitemap: https://example.com/sitemap.xml

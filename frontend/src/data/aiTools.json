@@ -5,6 +5,7 @@
       "logo": "/chatgpt-logo.png",
       "website": "https://chat.openai.com/",
       "overview": "ChatGPT, developed by OpenAI, is a state-of-the-art language model designed to understand and generate human-like text based on the input it receives. It can assist with a wide range of tasks, including answering questions, drafting content, providing recommendations, and more, making it a versatile tool for businesses and individuals alike.",
+      "complexity": "Low for everyday Q&A and content generation; moderate if integrating via API or creating complex workflows.",
       "keyFeatures": [
         "Natural Language Understanding",
         "Content Generation",
@@ -18,6 +19,19 @@
         "Versatile Applications",
         "Scalable Solutions"
       ],
+      "prosCons": {
+        "pros": [
+          "Easy to use for general Q&A and writing prompts",
+          "Handles multiple languages and domains",
+          "Constantly updated/improved by OpenAI"
+        ],
+        "cons": [
+          "May generate inaccurate or outdated info",
+          "Advanced usage or API calls can incur costs",
+          "Limited context window for very large content"
+        ]
+      },
+      "paidOrFree": "Free for basic usage on chat.openai.com; ChatGPT Plus subscription offers faster responses, extra features, and API usage is pay-as-you-go.",
       "commonUseCases": [
         "Drafting and editing marketing content and blog posts",
         "Automating customer service and support responses",
@@ -30,6 +44,7 @@
       "logo": "/midjourney-icon.jpg",
       "website": "https://www.midjourney.com/",
       "overview": "MidJourney AI is an advanced artificial intelligence tool specializing in generating high-quality, creative images from textual descriptions. It leverages machine learning algorithms to transform user-provided prompts into visually stunning artwork, making it a valuable asset for designers, marketers, and content creators.",
+      "complexity": "Low to Moderate; easy to generate images with prompts, but advanced customization and prompt tuning can require more experimentation.",
       "keyFeatures": [
         "Text-to-Image Generation",
         "High-Resolution Outputs",
@@ -43,11 +58,356 @@
         "Cost-Effective",
         "Versatile Applications"
       ],
+      "prosCons": {
+        "pros": [
+          "Produces imaginative, unique artwork",
+          "Discord-based interface is relatively accessible",
+          "Supports various prompt styles and expansions"
+        ],
+        "cons": [
+          "Requires Discord account for usage",
+          "Limited direct control over final output style",
+          "May have usage limits or subscription tiers"
+        ]
+      },
+      "paidOrFree": "Paid subscription tiers after trial usage; different plans for image generation limits.",
       "commonUseCases": [
         "Creating custom illustrations for blog posts and social media",
         "Designing unique graphics for marketing campaigns",
         "Generating concept art for creative projects and presentations"
       ]
+    },
+    {
+      "name": "Gemini",
+      "logo": "/gemini-logo.png",
+      "website": "https://blog.google/technology/ai/google-gemini/",
+      "overview": "Gemini is Google’s forthcoming multimodal AI model, aiming to handle text, images, and potentially other data types within a single system. It’s designed to surpass previous language models in reasoning and performance once publicly released.",
+      "complexity": "High for advanced, multi-modal tasks, but exact complexity is unknown until release.",
+      "keyFeatures": [
+        "Multi-modal AI (text, images, etc.)",
+        "Deep integration with Google’s ecosystem",
+        "Next-generation model architecture",
+        "Potentially surpass older LLM performance",
+        "Enterprise-friendly scalability"
+      ],
+      "benefits": [
+        "Handles diverse data (text, visual) in one platform",
+        "Likely strong synergy with Google Cloud tools",
+        "Advanced reasoning and content generation"
+      ],
+      "prosCons": {
+        "pros": [
+          "Developed by Google’s top AI team",
+          "May unify text and image processing seamlessly",
+          "Likely strong documentation once launched"
+        ],
+        "cons": [
+          "Not yet publicly available",
+          "Exact capabilities still speculative",
+          "Potential high cost or pay-as-you-go model"
+        ]
+      },
+      "paidOrFree": "TBD (Likely part of Google Cloud offerings; may have a limited free tier or pay-per-use structure).",
+      "commonUseCases": [
+        "Future AI-driven content and data analytics",
+        "Large-scale enterprise solutions via Google Cloud",
+        "Advanced research or specialized AI tasks"
+      ]
+    },
+    {
+      "name": "UiPath",
+      "logo": "/uipath-logo.png",
+      "website": "https://www.uipath.com/",
+      "overview": "UiPath is a leading RPA (Robotic Process Automation) platform that lets businesses create and manage software bots to automate routine, repetitive tasks. It also includes AI modules for document understanding and more.",
+      "complexity": "Moderate to high, especially for large-scale RPA or advanced custom workflows.",
+      "keyFeatures": [
+        "Visual workflow builder",
+        "Automated screen-based tasks (RPA)",
+        "Orchestration of multiple bots",
+        "AI-driven document processing",
+        "Scalable enterprise deployments"
+      ],
+      "benefits": [
+        "Minimizes manual data entry",
+        "Cuts operational costs and human errors",
+        "Accelerates digital transformation"
+      ],
+      "prosCons": {
+        "pros": [
+          "Comprehensive suite for RPA + AI",
+          "Large community and robust training resources",
+          "Extensive integration with legacy systems"
+        ],
+        "cons": [
+          "Enterprise pricing may be high for smaller firms",
+          "Learning curve for complex workflows"
+        ]
+      },
+      "paidOrFree": "Paid enterprise-level solution; free Community Edition for small-scale or learning use.",
+      "commonUseCases": [
+        "Invoice processing and data entry",
+        "Cross-system workflow automation",
+        "Legacy software integration without coding"
+      ]
+    },
+    {
+      "name": "Auto-GPT",
+      "logo": "/autogpt-logo.png",
+      "website": "https://github.com/Torantulino/Auto-GPT",
+      "overview": "Auto-GPT is an experimental, open-source Python script that uses GPT-based models to 'self-prompt.' It attempts to break down user goals into smaller tasks, iterating with minimal human input.",
+      "complexity": "High for non-technical users; requires Python and OpenAI API setup.",
+      "keyFeatures": [
+        "Autonomous GPT-driven task completion",
+        "Self-prompting for multi-step workflows",
+        "Open-source and customizable",
+        "Uses GPT API behind the scenes",
+        "Experimental approach"
+      ],
+      "benefits": [
+        "Automates complex tasks with minimal user prompts",
+        "Flexible, can be adapted to various goals",
+        "Community-driven enhancements"
+      ],
+      "prosCons": {
+        "pros": [
+          "Showcases advanced AI agent capabilities",
+          "Fully open-source for customization",
+          "Exciting potential for multi-step tasks"
+        ],
+        "cons": [
+          "Unstable or unpredictable in some scenarios",
+          "Must manage API costs if using GPT-4 or large requests",
+          "Requires command-line and Python environment"
+        ]
+      },
+      "paidOrFree": "Open-source and free to install; usage costs depend on GPT API usage.",
+      "commonUseCases": [
+        "Research and data gathering",
+        "Large-scale content planning or brainstorming",
+        "Proof-of-concept AI agent experiments"
+      ]
+    },
+    {
+      "name": "Agent GPT",
+      "logo": "/agentgpt-logo.png",
+      "website": "https://agentgpt.reworkd.ai/",
+      "overview": "Agent GPT is a web-based interface for creating autonomous GPT 'agents' without needing to install Python scripts. You can assign a goal, and the AI iteratively tries to accomplish tasks by prompting itself.",
+      "complexity": "Lower than Auto-GPT because of its browser-based UI, but still experimental in results.",
+      "keyFeatures": [
+        "No-code interface for autonomous GPT agents",
+        "Goal-driven iterative processing",
+        "Visual progress tracking",
+        "Community-maintained",
+        "Uses GPT behind the scenes"
+      ],
+      "benefits": [
+        "Easy to experiment with GPT autonomy",
+        "No local setup required",
+        "Quick test environment for AI chain-of-thought"
+      ],
+      "prosCons": {
+        "pros": [
+          "Browser-based, user-friendly approach",
+          "Allows multi-step tasks with minimal manual prompts",
+          "Frequent updates from open-source contributors"
+        ],
+        "cons": [
+          "Experimental and can produce tangential outputs",
+          "Limited control vs. direct Python scripting",
+          "Reliant on service availability for the interface"
+        ]
+      },
+      "paidOrFree": "Free to try in browser; usage may be limited or rely on external GPT API keys for advanced tasks.",
+      "commonUseCases": [
+        "Lightweight AI research tasks",
+        "Idea generation or brainstorming",
+        "Demonstrations of AI agent potential"
+      ]
+    },
+    {
+      "name": "Bard",
+      "logo": "/bard-logo.png",
+      "website": "https://bard.google.com/",
+      "overview": "Bard is Google’s conversational AI model, designed to answer queries, draft text, and integrate with Google’s ecosystem. It competes with ChatGPT in providing human-like text responses.",
+      "complexity": "Low for normal usage. Advanced API integrations may come in the future.",
+      "keyFeatures": [
+        "Conversational Q&A",
+        "Google search integration",
+        "Real-time or fresh data focus",
+        "User-friendly chat interface",
+        "Frequent updates from Google"
+      ],
+      "benefits": [
+        "Easy to use for research or content drafting",
+        "Potential synergy with other Google apps",
+        "Acts as a quick alternative to ChatGPT"
+      ],
+      "prosCons": {
+        "pros": [
+          "Familiar Google interface for many users",
+          "Possibility of up-to-date knowledge base",
+          "Integrated with Google’s ecosystem"
+        ],
+        "cons": [
+          "Less mature than ChatGPT in some advanced tasks",
+          "Data privacy or training model limitations unknown",
+          "Regional availability may vary"
+        ]
+      },
+      "paidOrFree": "Free consumer version available; future business integrations or API might be paid via Google Cloud.",
+      "commonUseCases": [
+        "General knowledge queries",
+        "Drafting short marketing copy",
+        "Brainstorming or idea validation"
+      ]
+    },
+    {
+      "name": "Rasa",
+      "logo": "/rasa-logo.png",
+      "website": "https://rasa.com/",
+      "overview": "Rasa is an open-source framework for creating custom AI chatbots with full control over data, dialogue management, and natural language understanding (NLU) pipelines.",
+      "complexity": "Moderate to high, involving Python, NLU training, and potential DevOps for hosting.",
+      "keyFeatures": [
+        "Self-hosted or enterprise versions",
+        "Customizable NLU & dialogue management",
+        "Rich community & docs",
+        "Works with multiple channels",
+        "End-to-end AI chatbot framework"
+      ],
+      "benefits": [
+        "Privacy-friendly (own your data)",
+        "Highly flexible for domain-specific bots",
+        "Strong developer community"
+      ],
+      "prosCons": {
+        "pros": [
+          "Full control over bot logic and data",
+          "Active open-source ecosystem",
+          "Scalable for enterprise use"
+        ],
+        "cons": [
+          "Requires Python / ML knowledge for advanced usage",
+          "Not a plug-and-play solution for non-technical teams",
+          "Hosting and maintenance overhead"
+        ]
+      },
+      "paidOrFree": "Open-source with free Community Edition; Rasa Enterprise is paid with added features/support.",
+      "commonUseCases": [
+        "Customer support chatbots",
+        "Internal help desk Q&A",
+        "Advanced, domain-specific conversation flows"
+      ]
+    },
+    {
+      "name": "Botpress",
+      "logo": "/botpress-logo.png",
+      "website": "https://botpress.com/",
+      "overview": "Botpress is a visual chatbot builder that offers an open-source core or cloud platform, letting users create conversational flows and integrate them with various channels.",
+      "complexity": "Moderate. Visual editor is easier than raw code, but advanced logic may need deeper customization.",
+      "keyFeatures": [
+        "Graphical flow-based editor",
+        "Modular NLU engine",
+        "Open-source or cloud options",
+        "Built-in analytics",
+        "Multi-channel deployment"
+      ],
+      "benefits": [
+        "Easy to design conversation flows visually",
+        "Choice of self-hosted or Botpress Cloud",
+        "Strong user community"
+      ],
+      "prosCons": {
+        "pros": [
+          "Flowchart-style design for logic",
+          "Extensible with custom modules",
+          "Free community version"
+        ],
+        "cons": [
+          "Complex projects may still require coding",
+          "Advanced NLU setups need training data"
+        ]
+      },
+      "paidOrFree": "Open-source core is free; paid plans for Botpress Cloud and enterprise support.",
+      "commonUseCases": [
+        "Customer service or lead gen chatbots",
+        "Internal FAQ bots",
+        "Quick deployment of multi-channel chat solutions"
+      ]
+    },
+    {
+      "name": "Cogito",
+      "logo": "/cogito-logo.png",
+      "website": "https://www.cogitocorp.com/",
+      "overview": "Cogito uses AI-driven real-time voice analytics to guide call center agents, focusing on empathetic responses and improved customer satisfaction. It analyzes tone, pace, and sentiment mid-call.",
+      "complexity": "Moderate to high if integrating deeply with your call center tech stack.",
+      "keyFeatures": [
+        "Real-time 'empathy cues'",
+        "Voice sentiment analysis",
+        "Agent coaching dashboards",
+        "Performance insights",
+        "Enterprise-level integrations"
+      ],
+      "benefits": [
+        "Enhances customer satisfaction in call centers",
+        "Gives live feedback to agents",
+        "Reduces training time through direct coaching"
+      ],
+      "prosCons": {
+        "pros": [
+          "Focus on emotional intelligence for better CX",
+          "Real-time call insights are unique in the market",
+          "Potentially boosts call outcomes and agent morale"
+        ],
+        "cons": [
+          "Requires integration with call center software",
+          "Best suited for mid-to-large contact centers",
+          "Pricing can be significant for enterprise rollouts"
+        ]
+      },
+      "paidOrFree": "Paid enterprise solution, typically requiring custom quotes.",
+      "commonUseCases": [
+        "Customer support centers",
+        "Sales call optimization",
+        "Large-scale call handling with quality assurance"
+      ]
+    },
+    {
+      "name": "DataRobot",
+      "logo": "/datarobot-logo.png",
+      "website": "https://www.datarobot.com/",
+      "overview": "DataRobot is an end-to-end AutoML platform that automates the steps of building and deploying machine learning models, from data prep to ongoing monitoring.",
+      "complexity": "Moderate—non-technical users can get started, but advanced ML usage may need data science knowledge.",
+      "keyFeatures": [
+        "Automated model creation",
+        "Model deployment and monitoring",
+        "Visual data prep and insights",
+        "Enterprise integration",
+        "Governance and compliance tools"
+      ],
+      "benefits": [
+        "Speeds up building predictive models",
+        "Handles algorithm selection & tuning",
+        "Robust enterprise features"
+      ],
+      "prosCons": {
+        "pros": [
+          "Streamlines entire ML lifecycle",
+          "Powerful automation for data scientists",
+          "Strong enterprise security/compliance"
+        ],
+        "cons": [
+          "Can be expensive for small teams",
+          "Requires decent data quality and volume"
+        ]
+      },
+      "paidOrFree": "Paid (enterprise/negotiated pricing). Free trials or academic programs may exist.",
+      "commonUseCases": [
+        "Churn prediction",
+        "Sales forecasting",
+        "Fraud detection and risk modeling"
+      ]
     }
-  ]
+    ]
+    
+  
 }

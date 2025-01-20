@@ -24,24 +24,62 @@ const ToolModal = ({ tool, onClose }) => {
           <section className="overview-section">
             <h3>Overview</h3>
             <p>{tool.overview}</p>
+            {tool.complexity && (
+              <div className="complexity-info">
+                <strong>Complexity:</strong> {tool.complexity}
+              </div>
+            )}
+            {tool.paidOrFree && (
+              <div className="pricing-info">
+                <strong>Pricing:</strong> {tool.paidOrFree}
+              </div>
+            )}
           </section>
 
-          <section className="features-section">
-            <h3>Key Features</h3>
-            <ul>
-              {tool.keyFeatures.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
-          </section>
+          {tool.prosCons && (
+            <section className="pros-cons-section">
+              <h3>Pros & Cons</h3>
+              <div className="pros-cons-container">
+                <div className="pros">
+                  <h4>Pros</h4>
+                  <ul>
+                    {tool.prosCons.pros.map((pro, index) => (
+                      <li key={index}>{pro}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="cons">
+                  <h4>Cons</h4>
+                  <ul>
+                    {tool.prosCons.cons.map((con, index) => (
+                      <li key={index}>{con}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          )}
 
-          <section className="benefits-section">
-            <h3>Benefits</h3>
-            <ul>
-              {tool.benefits.map((benefit, index) => (
-                <li key={index}>{benefit}</li>
-              ))}
-            </ul>
+          <section className="features-benefits-section">
+            <h3>Key Features & Benefits</h3>
+            <div className="features-benefits-container">
+              <div className="features">
+                <h4>Key Features</h4>
+                <ul>
+                  {tool.keyFeatures.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="benefits">
+                <h4>Benefits</h4>
+                <ul>
+                  {tool.benefits.map((benefit, index) => (
+                    <li key={index}>{benefit}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </section>
 
           <section className="use-cases-section">

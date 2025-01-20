@@ -66,8 +66,16 @@
 
 .tool-modal-body h3 {
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-size: 1.4rem;
+  text-align: center;
+}
+
+.tool-modal-body h4 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 .tool-modal-body p {
@@ -76,6 +84,37 @@
   margin-bottom: 1rem;
 }
 
+.complexity-info,
+.pricing-info {
+  background: #f8f9fa;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.complexity-info strong,
+.pricing-info strong {
+  color: #333;
+  margin-right: 0.5rem;
+}
+
+.pros-cons-section,
+.features-benefits-section {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.pros-cons-container,
+.features-benefits-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Base list styles */
 .tool-modal-body ul {
   list-style-type: none;
   padding: 0;
@@ -84,15 +123,47 @@
 
 .tool-modal-body li {
   padding: 0.5rem 0;
-  padding-left: 1.5rem;
+  padding-left: 1.8rem;
   position: relative;
   color: #666;
   line-height: 1.4;
 }
 
-.tool-modal-body li::before {
+/* Features & Benefits styles */
+.features li::before,
+.benefits li::before,
+.pros li::before,
+.cons li::before {
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.features li::before {
   content: "•";
-  color: var(--primary);
+  color: #1a73e8;
+}
+
+.benefits li::before {
+  content: "✓";
+  color: #4CAF50;
+}
+
+/* Pros & Cons styles */
+.pros li::before {
+  content: "✓";
+  color: #4CAF50;
+}
+
+.cons li::before {
+  content: "×";
+  color: #f44336;
+}
+
+/* Use cases styles */
+.use-cases-section li::before {
+  content: "→";
+  color: #1a73e8;
   position: absolute;
   left: 0;
   font-weight: bold;
@@ -124,6 +195,12 @@
 @media (max-width: 768px) {
   .tool-modal-content {
     padding: 1.5rem;
+  }
+
+  .pros-cons-container,
+  .features-benefits-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .tool-modal-header {

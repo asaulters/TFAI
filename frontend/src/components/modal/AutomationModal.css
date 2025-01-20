@@ -161,10 +161,119 @@
   }
   
   .difficulty-level,
+  .complexity-level,
   .setup-time,
-  .cost-estimate {
+  .cost-estimate,
+  .pricing-info {
     margin: 0.5rem 0;
     color: #666;
+  }
+
+  .key-features-section {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+
+  .key-features-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .key-features-section li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .key-features-section li:before {
+    content: "•";
+    color: #1a73e8;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  .pros-cons-section {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+
+  .pros-cons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .pros h4, .cons h4 {
+    margin-bottom: 0.8rem;
+    color: #333;
+  }
+
+  .pros ul, .cons ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .pros li, .cons li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .pros li:before {
+    content: "✓";
+    color: #4CAF50;
+    position: absolute;
+    left: 0;
+  }
+
+  .cons li:before {
+    content: "×";
+    color: #f44336;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  .use-cases-section {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+
+  .use-cases-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .use-cases-section li {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .use-cases-section li:before {
+    content: "→";
+    color: #1a73e8;
+    position: absolute;
+    left: 0;
+  }
+
+  @media (max-width: 768px) {
+    .pros-cons-container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .pros, .cons {
+      padding: 0;
+    }
   }
   
   .tools-used-section,

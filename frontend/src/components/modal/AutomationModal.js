@@ -152,26 +152,66 @@ const AutomationModal = ({ automation, onClose }) => {
 
         <div className="modal-body">
           <div className="overview-section">
-            <p className="description">{automation.description}</p>
+            <p className="description">{automation.overview}</p>
             
-            {automation.difficulty && (
-              <div className="difficulty-level">
-                <strong>Difficulty:</strong> {automation.difficulty}
+            {automation.complexity && (
+              <div className="complexity-level">
+                <strong>Complexity:</strong> {automation.complexity}
               </div>
             )}
 
-            {automation.setupTime && (
-              <div className="setup-time">
-                <strong>Setup Time:</strong> {automation.setupTime}
-              </div>
-            )}
-
-            {automation.costEstimate && (
-              <div className="cost-estimate">
-                <strong>Cost Estimate:</strong> {automation.costEstimate}
+            {automation.paidOrFree && (
+              <div className="pricing-info">
+                <strong>Pricing:</strong> {automation.paidOrFree}
               </div>
             )}
           </div>
+
+          {automation.keyFeatures && (
+            <div className="key-features-section">
+              <h3>Key Features</h3>
+              <ul>
+                {automation.keyFeatures.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {automation.prosCons && (
+            <div className="pros-cons-section">
+              <h3>Pros & Cons</h3>
+              <div className="pros-cons-container">
+                <div className="pros">
+                  <h4>Pros</h4>
+                  <ul>
+                    {automation.prosCons.pros.map((pro, index) => (
+                      <li key={index}>{pro}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="cons">
+                  <h4>Cons</h4>
+                  <ul>
+                    {automation.prosCons.cons.map((con, index) => (
+                      <li key={index}>{con}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {automation.commonUseCases && (
+            <div className="use-cases-section">
+              <h3>Common Use Cases</h3>
+              <ul>
+                {automation.commonUseCases.map((useCase, index) => (
+                  <li key={index}>{useCase}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="video-section">
             <h3>Video Walkthrough</h3>
