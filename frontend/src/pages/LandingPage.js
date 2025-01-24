@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import CategorySelector from '../components/category/CategorySelector';
 import TaskDisplay from '../components/category/TaskDisplay';
 import GeneralAutomations from '../components/automations/GeneralAutomations';
@@ -43,11 +44,49 @@ const LandingPage = () => {
   }, [location]);
 
   return (
-    <div className="landing-page">
-      <section className="hero">
+    <>
+      <Helmet>
+        <title>TaskFlowAI - Streamline Your Business with AI Automation Solutions</title>
+        <meta name="description" content="Discover AI-powered automation solutions tailored to your industry. Streamline workflows, reduce costs, and boost efficiency with our intelligent automation tools." />
+        <meta name="keywords" content="business automation, AI automation, workflow automation, industry automation, business efficiency, TaskFlowAI" />
+        <link rel="canonical" href="https://taskflowai.com" />
+        
+        {/* Open Graph tags for social sharing */}
+        <meta property="og:title" content="TaskFlowAI - Streamline Your Business with AI Automation" />
+        <meta property="og:description" content="Discover AI-powered automation solutions tailored to your industry. Streamline workflows, reduce costs, and boost efficiency." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://taskflowai.com" />
+        <meta property="og:image" content="/TaskFlowAI_logo_transparent.png" />
+        
+        {/* Schema.org markup for rich results */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "TaskFlowAI",
+              "applicationCategory": "BusinessApplication",
+              "description": "AI-powered automation solutions for streamlining business workflows and improving efficiency",
+              "offers": {
+                "@type": "Offer",
+                "category": "Business Automation Solutions"
+              },
+              "featureList": [
+                "Industry-specific automations",
+                "General business automations",
+                "AI-powered workflow optimization",
+                "Custom automation solutions"
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
+
+      <main className="landing-page">
+      <section className="hero" aria-label="hero">
         <div className="container">
           <h1>Streamline Your Business with AI</h1>
-          <p>Discover automated solutions tailored to your needs</p>
+          <p className="hero-subtitle">Discover automated solutions tailored to your industry needs</p>
           <div className="cta-buttons">
             <button 
               className="cta-button industry"
@@ -65,7 +104,12 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="automations-section" id="automations-section" ref={automationsSectionRef}>
+      <section 
+        className="automations-section" 
+        id="automations-section" 
+        ref={automationsSectionRef}
+        aria-label="automation solutions"
+      >
         {!viewMode ? (
           <p className="select-prompt">Please Choose Automation Type Above!</p>
         ) : viewMode === 'industry' ? (
@@ -84,16 +128,19 @@ const LandingPage = () => {
 
       <WhyAutomation />
 
-      <div id="coming-soon" ref={comingSoonRef}>
+      <section id="coming-soon" ref={comingSoonRef} aria-label="upcoming features">
         <ComingSoon />
-      </div>
+      </section>
 
-      <FAQ />
+      <section aria-label="frequently asked questions">
+        <FAQ />
+      </section>
       
-      <div id="contact-form" ref={contactFormRef}>
+      <section id="contact-form" ref={contactFormRef} aria-label="contact form">
         <ContactForm />
-      </div>
-    </div>
+      </section>
+      </main>
+    </>
   );
 };
 

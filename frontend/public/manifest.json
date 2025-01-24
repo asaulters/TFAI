@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "BizEaseAI",
+  "name": "BizEaseAI - Business Automation Platform",
+  "description": "Discover AI-powered automation solutions tailored to your industry. Streamline workflows, reduce costs, and boost efficiency.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,18 +9,24 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "BizEaseAI_logo_transparent.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
-      "src": "logo512.png",
+      "src": "BizEaseAI_transparent.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#1a73e8",
+  "background_color": "#ffffff",
+  "categories": ["business", "productivity", "utilities"],
+  "orientation": "any",
+  "prefer_related_applications": false
 }

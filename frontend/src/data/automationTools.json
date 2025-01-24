@@ -1,43 +1,6 @@
 {
     "tools": [
       {
-        "name": "Zapier",
-        "logo": "/zapier-logo.png",
-        "website": "https://zapier.com/",
-        "overview": "Zapier is a leading automation platform that connects over 5,000 web applications, enabling users to automate repetitive tasks without the need for coding. By creating 'Zaps,' users can set up automated workflows that trigger actions across different apps based on specific events.",
-        "complexity": "Low to Moderate (easy to build simple one-step automations; advanced multi-step workflows or conditional logic require more planning).",
-        "keyFeatures": [
-          "Wide Integration Range",
-          "No-Code Automation",
-          "Multi-Step Zaps",
-          "Conditional Logic",
-          "Task History"
-        ],
-        "benefits": [
-          "Increases Efficiency",
-          "Enhances Productivity",
-          "Scalable Solutions",
-          "Reduces Errors"
-        ],
-        "prosCons": {
-          "pros": [
-            "Large library of supported apps",
-            "User-friendly interface for building Zaps",
-            "Good documentation and community support"
-          ],
-          "cons": [
-            "Multi-step automations can become expensive on higher tiers",
-            "Complex conditional logic may require careful planning"
-          ]
-        },
-        "paidOrFree": "Free tier with limited tasks; paid plans unlock higher task limits and premium features.",
-        "commonUseCases": [
-          "Automatically adding new email subscribers to a CRM",
-          "Posting content from a blog to social media channels",
-          "Creating tasks in project management tools based on form submissions"
-        ]
-      },
-      {
         "name": "Make",
         "logo": "/make-logo.jpg",
         "website": "https://www.make.com/en/register?pc=bizeaseai",
@@ -74,6 +37,44 @@
           "Generating detailed reports by aggregating data from various sources"
         ]
       },
+      {
+        "name": "Zapier",
+        "logo": "/zapier-logo.png",
+        "website": "https://zapier.com/",
+        "overview": "Zapier is a leading automation platform that connects over 5,000 web applications, enabling users to automate repetitive tasks without the need for coding. By creating 'Zaps,' users can set up automated workflows that trigger actions across different apps based on specific events.",
+        "complexity": "Low to Moderate (easy to build simple one-step automations; advanced multi-step workflows or conditional logic require more planning).",
+        "keyFeatures": [
+          "Wide Integration Range",
+          "No-Code Automation",
+          "Multi-Step Zaps",
+          "Conditional Logic",
+          "Task History"
+        ],
+        "benefits": [
+          "Increases Efficiency",
+          "Enhances Productivity",
+          "Scalable Solutions",
+          "Reduces Errors"
+        ],
+        "prosCons": {
+          "pros": [
+            "Large library of supported apps",
+            "User-friendly interface for building Zaps",
+            "Good documentation and community support"
+          ],
+          "cons": [
+            "Multi-step automations can become expensive on higher tiers",
+            "Complex conditional logic may require careful planning"
+          ]
+        },
+        "paidOrFree": "Free tier with limited tasks; paid plans unlock higher task limits and premium features.",
+        "commonUseCases": [
+          "Automatically adding new email subscribers to a CRM",
+          "Posting content from a blog to social media channels",
+          "Creating tasks in project management tools based on form submissions"
+        ]
+      },
+      
       {
         "name": "Airtable",
         "logo": "/airtable-logo.png",
@@ -113,10 +114,10 @@
         ]
       },
       {
-        "name": "HubSpot CRM",
+        "name": "HubSpot",
         "logo": "/hubspot-logo.png",
         "website": "https://hubspot.com/",
-        "overview": "The HubSpot CRM Integration with BizEaseAI empowers small to medium-sized businesses, freelancers, and solopreneurs to efficiently manage their leads and customer interactions. By automatically syncing leads from BizEaseAI directly into HubSpot CRM, this integration ensures organized lead management, automated follow-ups, and data-driven decision-making, enhancing overall productivity and customer engagement.",
+        "overview": "The HubSpot CRM Integration empowers small to medium-sized businesses, freelancers, and solopreneurs to efficiently manage their leads and customer interactions. By automatically syncing leads directly into HubSpot CRM, this integration ensures organized lead management, automated follow-ups, and data-driven decision-making, enhancing overall productivity and customer engagement.",
         "complexity": "Low to Moderate (basic CRM usage is easy; advanced marketing automation or custom properties require more setup).",
         "keyFeatures": [
           "Automatic Lead Syncing",

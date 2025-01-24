@@ -2,8 +2,18 @@
 User-agent: *
 Allow: /
 Allow: /ai-tools
-Allow: /components/
-Allow: /sections/
+Allow: /privacy-policy
+Allow: /terms-of-service
+Allow: /automation-101
+
+# Disallow crawling of development/internal paths
+Disallow: /components/
+Disallow: /sections/
+Disallow: /data/
+Disallow: /services/
+
+# Optimize crawling
+Crawl-delay: 1
 
 # Point to sitemap
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://bizeaseai.com/sitemap.xml

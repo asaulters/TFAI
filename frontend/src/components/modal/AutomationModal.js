@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import VideoPlayer from '../video/VideoPlayer';
 import './AutomationModal.css';
@@ -63,70 +64,62 @@ const AutomationModal = ({ automation, onClose }) => {
     }
   };
 
+  // Handle ESC key to close modal
+  const handleEscKey = useCallback((event) => {
+    if (event.key === 'Escape') {
+      onClose();
+    }
+  }, [onClose]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleEscKey);
+    // Lock body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+    
+    return () => {
+      document.removeEventListener('keydown', handleEscKey);
+      document.body.style.overflow = 'unset';
+    };
+  }, [handleEscKey]);
+
   const navigate = useNavigate();
 
   if (!automation) return null;
 
   const createToolLink = (toolName) => {
-    const toolsMap = {
-      'Zapier': 'zapier',
-      'Make': 'make',
-      'Airtable': 'airtable',
-      'Twilio': 'twilio',
-      'Mailchimp': 'mailchimp',
-      'Asana': 'asana',
-      'SurveyMonkey': 'surveymonkey',
-      'Typeform': 'typeform',
-      'JotForm': 'jotform',
-      'Slack': 'slack',
-      'ChatGPT': 'chatgpt',
-      'Canva': 'canva',
-      'Buffer': 'buffer',
-      'Calendly': 'calendly',
-      'Trello': 'trello',
-      'MidJourney': 'midjourney',
-      'HubSpot': 'hubspot',
-      'Google Drive': 'google-drive',
-      'Dropbox': 'dropbox',
-      'Google Analytics': 'google-analytics',
-      'Git': 'git',
-      'ApproveMe': 'approveme',
-      'Monday': 'monday',
-      'ClickUp': 'clickup',
-      'Microsoft Teams': 'microsoft-teams',
-      'Notion': 'notion',
-      'Zoom': 'zoom',
-      'DocuSign': 'docusign',
-      'QuickBooks': 'quickbooks',
-      'Xero': 'xero',
-      'Stripe': 'stripe',
-      'PayPal': 'paypal',
-      'Square': 'square',
-      'WordPress': 'wordpress',
-      'Shopify': 'shopify',
-      'WooCommerce': 'woocommerce'
-    };
+    // Normalize the tool name
+    const normalizedName = toolName.trim();
     
-    const normalizedToolName = Object.keys(toolsMap).find(
-      key => key.toLowerCase() === toolName.trim().toLowerCase()
-    );
+    // Special case for HubSpot variations
+    const isHubSpot = normalizedName.toLowerCase().replace(/\s+/g, '') === 'hubspot';
     
-    if (normalizedToolName) {
-      return (
-        <span
-          key={normalizedToolName}
-          className="tool-link"
-          onClick={(e) => {
-            e.stopPropagation();
-            navigate(`/ai-tools?tool=${toolsMap[normalizedToolName]}`);
-            onClose();
-          }}
-        >
-          {normalizedToolName}
-        </span>
+    // Check if tool exists in automationTools.json
+    try {
+      const allTools = require('../../data/automationTools.json').tools;
+      const toolExists = allTools.some(
+        tool => tool.name.toLowerCase().replace(/\s+/g, '') === normalizedName.toLowerCase().replace(/\s+/g, '')
       );
+      
+      if (toolExists || isHubSpot) {
+        return (
+          <span
+            key={toolName}
+            className="tool-link"
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(`/ai-tools?tool=${toolName}`);
+              onClose();
+            }}
+          >
+            {toolName}
+          </span>
+        );
+      }
+    } catch (error) {
+      console.error('Error checking tool existence:', error);
     }
-    return toolName;
+    
+    return <span>{toolName}</span>;
   };
 
   const renderToolsList = (toolsArray) => {
@@ -141,17 +134,60 @@ const AutomationModal = ({ automation, onClose }) => {
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>&times;</button>
-        
-        <div className="modal-header">
-          <h2>{automation.title}</h2>
-          <div className="category-tag">{automation.category}</div>
-        </div>
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "HowTo",
+              "name": "${automation.title}",
+              "description": "${automation.overview}",
+              "category": "${automation.category}",
+              "step": ${JSON.stringify(automation.steps.map((step, index) => ({
+                "@type": "HowToStep",
+                "position": index + 1,
+                "name": step.title,
+                "text": step.description
+              })))},
+              "tool": ${JSON.stringify(automation.tools)},
+              "supply": ${JSON.stringify(automation.prerequisites || [])},
+              "estimatedCost": {
+                "@type": "MonetaryAmount",
+                "category": "${automation.paidOrFree || 'Variable'}"
+              }
+            }
+          `}
+        </script>
+      </Helmet>
 
-        <div className="modal-body">
-          <div className="overview-section">
+      <div 
+        className="modal-overlay" 
+        onClick={onClose}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <div 
+          className="modal-content" 
+          onClick={e => e.stopPropagation()}
+          role="document"
+        >
+          <button 
+            className="modal-close" 
+            onClick={onClose}
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+        
+          <div className="modal-header">
+            <h2 id="modal-title">{automation.title}</h2>
+            <div className="category-tag">{automation.category}</div>
+          </div>
+
+          <div className="modal-body">
+            <div className="overview-section">
             <p className="description">{automation.overview}</p>
             
             {automation.complexity && (
@@ -289,25 +325,50 @@ const AutomationModal = ({ automation, onClose }) => {
             </div>
           )}
 
-          <div className="download-section">
-            <input
-              type="text"
-              className="name-input"
-              placeholder="Enter Your Name"
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-              disabled={loading}
-            />
-            <input
-              type="email"
-              className="email-input"
-              placeholder="Enter Email for PDF"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              disabled={loading}
-            />
+          <div className="download-section" role="form" aria-label="Download PDF form">
+            <div className="form-field">
+              <label htmlFor="name" className="visually-hidden">Name</label>
+              <input
+                type="text"
+                id="name"
+                className="name-input"
+                placeholder="Enter Your Name"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+                disabled={loading}
+                required
+                aria-required="true"
+                minLength="2"
+                maxLength="50"
+              />
+            </div>
+            <div className="form-field">
+              <label htmlFor="email" className="visually-hidden">Email</label>
+              <input
+                type="email"
+                id="email"
+                className="email-input"
+                placeholder="Enter Email for PDF"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                disabled={loading}
+                required
+                aria-required="true"
+                aria-invalid={email && !isValidEmail(email)}
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              />
+              {email && !isValidEmail(email) && (
+                <span className="error-message" role="alert">
+                  Please enter a valid email address
+                </span>
+              )}
+            </div>
             {status.message && (
-              <div className={`status-message ${status.type}`}>
+              <div 
+                className={`status-message ${status.type}`}
+                role="alert"
+                aria-live={status.type === 'error' ? 'assertive' : 'polite'}
+              >
                 {status.message}
               </div>
             )}
@@ -317,6 +378,7 @@ const AutomationModal = ({ automation, onClose }) => {
                 className="download-pdf-btn success"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Download PDF walkthrough"
               >
                 Download PDF
               </a>
@@ -325,14 +387,21 @@ const AutomationModal = ({ automation, onClose }) => {
                 className="download-pdf-btn"
                 onClick={handleDownload}
                 disabled={loading || !name || !email || !isValidEmail(email)}
+                aria-busy={loading}
               >
-                {loading ? 'Processing...' : 'Download PDF Walkthrough'}
+                <span className="button-text">
+                  {loading ? 'Processing...' : 'Download PDF Walkthrough'}
+                </span>
+                {loading && (
+                  <span className="loading-spinner" aria-hidden="true" />
+                )}
               </button>
             )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

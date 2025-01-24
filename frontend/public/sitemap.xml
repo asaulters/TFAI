@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main pages -->
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://bizeaseai.com/</loc>
     <lastmod>2024-01-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://example.com/ai-tools</loc>
+    <loc>https://bizeaseai.com/ai-tools</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bizeaseai.com/automation-101</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Legal pages -->
+  <url>
+    <loc>https://bizeaseai.com/privacy-policy</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://bizeaseai.com/terms-of-service</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

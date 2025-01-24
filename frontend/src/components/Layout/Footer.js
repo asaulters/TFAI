@@ -22,6 +22,7 @@ const Footer = () => {
           © 2024 TaskFlowAI. All rights reserved.
         </div>
         <div className="footer-links">
+          <Link to="/automation-101" className="footer-link">Automation 101</Link>
           <Link to="/privacy" className="footer-link">Privacy Policy</Link>
           <Link to="/terms" className="footer-link">Terms of Service</Link>
           <a href="#contact" onClick={handleContactClick} className="footer-link">Contact Us</a>

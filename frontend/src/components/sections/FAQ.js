@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
+import { Helmet } from 'react-helmet';
 import './FAQ.css';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const faqId = useId();
 
   const toggleQuestion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -68,25 +70,61 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="faq-section">
-      <h2>Frequently Asked Questions</h2>
-      <div className="faq-container">
-        {faqData.map((faq, index) => (
-          <div key={index} className="faq-item">
-            <button
-              className={`faq-question ${activeIndex === index ? 'active' : ''}`}
-              onClick={() => toggleQuestion(index)}
-            >
-              {faq.question}
-              <span className="faq-icon">{activeIndex === index ? '−' : '+'}</span>
-            </button>
-            <div className={`faq-answer ${activeIndex === index ? 'active' : ''}`}>
-              {faq.answer}
-            </div>
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqData.map((faq) => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
+      </Helmet>
+      
+      <section className="faq-section" aria-labelledby={`${faqId}-title`}>
+        <h2 id={`${faqId}-title`}>Frequently Asked Questions</h2>
+          <div className="faq-container" role="list">
+            {faqData.map((faq, index) => (
+              <div 
+                key={index} 
+                className="faq-item" 
+                role="listitem"
+              >
+                <button
+                  className={`faq-question ${activeIndex === index ? 'active' : ''}`}
+                  onClick={() => toggleQuestion(index)}
+                  aria-expanded={activeIndex === index}
+                  aria-controls={`${faqId}-answer-${index}`}
+                  id={`${faqId}-question-${index}`}
+                >
+                  {faq.question}
+                  <span className="faq-icon" aria-hidden="true">
+                    {activeIndex === index ? '−' : '+'}
+                  </span>
+                </button>
+                <div 
+                  id={`${faqId}-answer-${index}`}
+                  className={`faq-answer ${activeIndex === index ? 'active' : ''}`}
+                  role="region"
+                  aria-labelledby={`${faqId}-question-${index}`}
+                  hidden={activeIndex !== index}
+                >
+                  {faq.answer.split('\n\n').map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </section>
+        </section>
+    </>
   );
 };
 
