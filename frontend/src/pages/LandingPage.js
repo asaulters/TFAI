@@ -86,7 +86,7 @@ const LandingPage = () => {
       <section className="hero" aria-label="hero">
         <div className="container">
           <h1>Streamline Your Business with AI</h1>
-          <p className="hero-subtitle">Discover automated solutions tailored to your industry needs</p>
+          <p className="hero-subtitle">Discover automation solutions tailored to your industry needs</p>
           <div className="cta-buttons">
             <button 
               className="cta-button industry"

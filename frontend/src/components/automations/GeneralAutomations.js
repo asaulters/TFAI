@@ -7,7 +7,6 @@ const GeneralAutomations = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategorySelect = (categoryData) => {
-    console.log('Selected general category:', categoryData);
     setSelectedCategory(categoryData);
   };
 

@@ -301,7 +301,7 @@
     {
       "name": "Botpress",
       "logo": "/botpress-logo.png",
-      "website": "https://botpress.com/",
+      "website": "https://try.botpress.com/brse9gy5gi5k",
       "overview": "Botpress is a visual chatbot builder that offers an open-source core or cloud platform, letting users create conversational flows and integrate them with various channels.",
       "complexity": "Moderate. Visual editor is easier than raw code, but advanced logic may need deeper customization.",
       "keyFeatures": [

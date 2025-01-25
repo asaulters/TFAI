@@ -15,9 +15,6 @@ const CategoryPage = () => {
       const categoryName = Object.keys(categoryData)[0];
       const automations = categoryData[categoryName];
 
-      console.log('Selected category:', categoryName);
-      console.log('Automations:', automations);
-
       setSelectedCategory({
         name: categoryName,
         automations: automations

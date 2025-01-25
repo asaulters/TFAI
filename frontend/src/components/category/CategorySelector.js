@@ -10,7 +10,6 @@ const CategorySelector = ({ onCategorySelect }) => {
     const fetchCategories = async () => {
       try {
         const data = await getCategories();
-        console.log('Fetched categories:', data.categories);
         setCategories(data.categories || []);
       } catch (error) {
         console.error('Error fetching categories:', error);
@@ -24,7 +23,6 @@ const CategorySelector = ({ onCategorySelect }) => {
     const categoryIndex = parseInt(event.target.value);
     setSelectedCategory(categoryIndex);
     const selectedCategoryData = categories[categoryIndex];
-    console.log('Selected category data:', selectedCategoryData);
     onCategorySelect(selectedCategoryData);
   };
 

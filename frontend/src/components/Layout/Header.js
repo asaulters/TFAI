@@ -28,12 +28,15 @@ const Header = () => {
         <nav>
           <ul>
             <li>
-              <a href="/ai-tools">AI Tools</a>
-            </li>
-            <li>
               <a onClick={() => handleNavClick('#automations-section')}>
                 Automations
               </a>
+            </li>
+            <li>
+              <a href="/ai-tools">AI Tools</a>
+            </li>
+            <li>
+              <a href="/automation-101">Automation 101</a>
             </li>
             <li>
               <a onClick={() => handleNavClick('#coming-soon')}>

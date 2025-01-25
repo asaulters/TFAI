@@ -4,18 +4,18 @@
   "description": "Discover AI-powered automation solutions tailored to your industry. Streamline workflows, reduce costs, and boost efficiency.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "BEA-white-logo.png",
+      "type": "image/png",
+      "sizes": "64x64 32x32 24x24 16x16"
     },
     {
-      "src": "BizEaseAI_logo_transparent.png",
+      "src": "BEA-white-logo.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "BizEaseAI_transparent.png",
+      "src": "BEA-white-logo.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"

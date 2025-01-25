@@ -5,14 +5,11 @@ const API_BASE_URL = 'http://localhost:5001/api';
 // Function to get all categories (job categories, task categories, and automation tasks)
 export const getCategories = async () => {
   try {
-    console.log('Fetching from:', `${API_BASE_URL}/automation-tasks/categories`); // Debug log
     const response = await fetch(`${API_BASE_URL}/automation-tasks/categories`);
     if (!response.ok) {
       throw new Error('Failed to fetch categories');
     }
     const data = await response.json();
-    console.log('API response data:', data); // Debug log
-    console.log('Number of categories:', data.categories?.length); // Debug log
     return data;
   } catch (error) {
     console.error('Error fetching categories:', error);

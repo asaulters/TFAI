@@ -10,7 +10,6 @@ const GeneralCategorySelector = ({ onCategorySelect }) => {
     const fetchCategories = async () => {
       try {
         const data = await getGeneralAutomations();
-        console.log('Fetched general categories:', data);
         setCategories(data.categories || []);
       } catch (error) {
         console.error('Error fetching general categories:', error);

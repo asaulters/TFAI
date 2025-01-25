@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ToolCard from '../components/tools/ToolCard';
 import ToolModal from '../components/tools/ToolModal';
+import ContactForm from '../components/ContactForm';
 import aiTools from '../data/aiTools.json';
 import automationTools from '../data/automationTools.json';
 import './AIToolsPage.css';
@@ -91,6 +92,12 @@ const AIToolsPage = () => {
           onClose={() => setSelectedTool(null)}
         />
       )}
+
+      <section className="contact-container">
+        <div className="container">
+          <ContactForm />
+        </div>
+      </section>
     </div>
   );
 };

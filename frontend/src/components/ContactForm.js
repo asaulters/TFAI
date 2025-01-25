@@ -5,8 +5,6 @@ import './ContactForm.css';
 
 const ContactForm = () => {
   useEffect(() => {
-
-    
     emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
   }, []);
 
@@ -22,12 +20,6 @@ const ContactForm = () => {
     setStatus('sending');
 
     try {
-      console.log('Attempting to send email with:', {
-        serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        templateId: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        formData,
-      });
-
       await emailjs.send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,

@@ -6,7 +6,6 @@ import productivityTools from '../../data/aiTools.json';
 import './AIToolsDisplay.css';
 
 const AIToolsDisplay = () => {
-  console.log('AIToolsDisplay component rendering');
   const [selectedTool, setSelectedTool] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
 
