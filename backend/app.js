@@ -3,6 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 const sequelize = require('./config/database');
 
 // Import routes
@@ -24,7 +25,7 @@ const PORT = process.env.PORT || 5001;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: process.env.NODE_ENV === 'production' ? true : 'http://localhost:3000',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -51,20 +52,37 @@ app.get('/api/test', (req, res) => {
 // Error Handling Middleware
 app.use(errorHandler);
 
-// 404 handler
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+  
+  // Handle React routing, return all requests to React app
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api/')) {
+      return next();
+    }
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+  });
+}
+
+// 404 handler - Only for API routes in production
 app.use((req, res) => {
-  console.log('404 Not Found:', req.method, req.url);
-  res.status(404).json({ error: 'Not Found' });
+  if (process.env.NODE_ENV !== 'production' || req.path.startsWith('/api/')) {
+    console.log('404 Not Found:', req.method, req.url);
+    res.status(404).json({ error: 'Not Found' });
+  }
 });
 
 // Sync Database and Start Server
 sequelize
   .sync({ force: false }) // Set to 'true' if you want to drop and recreate tables each time
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+    const server = app.listen(PORT, '0.0.0.0', () => {
+      const address = server.address();
+      console.log(`Server is running on port ${address.port}`);
     });
   })
   .catch((error) => {
     console.error('Unable to connect to the database:', error);
+    process.exit(1); // Exit on database connection failure
   });
